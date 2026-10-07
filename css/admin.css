@@ -1,0 +1,89 @@
+/* =========================================================
+   ADMIN-ONLY STYLES
+   Loaded only on /admin/*.html — never shipped to customers.
+   Uses the same tokens as css/style.css.
+========================================================= */
+
+.admin-body{ background: var(--bg); font-family: var(--font-body); }
+
+/* ---------------- login ---------------- */
+.admin-login-wrap{ min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; }
+.admin-login-card{
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 2.4rem;
+  width: 100%;
+  max-width: 400px;
+}
+.admin-login-title{ text-align: center; font-size: 1.8rem; margin-bottom: .3rem; }
+.admin-login-card .step-subtitle{ text-align: center; color: var(--muted); font-size: .9rem; margin-bottom: 1.6rem; }
+
+.notice{ border-radius: 8px; padding: .8rem 1rem; font-size: .82rem; margin-bottom: 1.2rem; line-height: 1.5; }
+.notice-warn{ background: rgba(255,77,31,.12); border: 1px solid rgba(255,77,31,.35); color: var(--text); }
+
+/* ---------------- dashboard shell ---------------- */
+.admin-topbar{ background: var(--bg-alt); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; }
+.admin-topbar__inner{
+  max-width: 1200px; margin: 0 auto; padding: 1rem 1.6rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.2rem;
+}
+.admin-shell{ max-width: 1200px; margin: 0 auto; padding: 2.4rem 1.6rem 4rem; }
+
+.admin-tabs{ display: flex; gap: .4rem; border-bottom: 1px solid var(--line); margin-bottom: 2rem; }
+.admin-tab{
+  background: none; border: 0; border-bottom: 2px solid transparent;
+  color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .06em; font-size: .85rem;
+  padding: .8rem 1.1rem;
+}
+.admin-tab.is-active{ color: var(--text); border-bottom-color: var(--accent); }
+.admin-panel{ display: none; }
+.admin-panel.is-active{ display: block; }
+
+.admin-panel-head{ display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.4rem; flex-wrap: wrap; gap: .8rem; }
+.admin-panel-head h2{ font-size: 1.5rem; }
+
+/* ---------------- tables ---------------- */
+.admin-table-wrap{ overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); }
+.admin-table{ width: 100%; min-width: 640px; border-collapse: collapse; }
+.admin-table th{
+  text-align: left; font-size: .78rem; text-transform: uppercase; letter-spacing: .05em;
+  color: var(--muted); padding: .8rem 1rem; background: var(--bg-alt); border-bottom: 1px solid var(--line);
+}
+.admin-table td{ padding: .8rem 1rem; border-top: 1px solid var(--line); font-size: .9rem; }
+.admin-table tbody tr:hover td{ background: rgba(255,255,255,.03); }
+
+.status-badge{ display: inline-block; padding: .25rem .65rem; border-radius: 999px; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+.status-badge--pending{ background: rgba(255,193,7,.15); color: #ffc107; }
+.status-badge--preparing{ background: rgba(255,77,31,.15); color: var(--accent); }
+.status-badge--ready{ background: rgba(90,200,120,.15); color: #5ac878; }
+.status-badge--completed{ background: rgba(255,255,255,.08); color: var(--muted); }
+.status-badge--cancelled{ background: rgba(255,31,61,.15); color: var(--accent-2); }
+
+.admin-status-select{ background: var(--bg-alt); border: 1px solid var(--line); color: var(--text); border-radius: 6px; padding: .3rem .5rem; font-size: .8rem; }
+
+.icon-btn{ background: none; border: 1px solid var(--line); color: var(--text); border-radius: 6px; padding: .3rem .6rem; font-size: .8rem; }
+.icon-btn:hover{ border-color: var(--accent); color: var(--accent); }
+.icon-btn.danger:hover{ border-color: var(--accent-2); color: var(--accent-2); }
+
+.empty-state{ text-align: center; color: var(--muted); padding: 3rem 0; }
+
+/* ---------------- modal (add/edit menu item) ---------------- */
+.modal-overlay{
+  position: fixed; inset: 0; background: rgba(0,0,0,.6);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 200; padding: 1.6rem;
+}
+.modal-overlay[hidden]{ display: none; }
+.modal-card{
+  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 2rem; width: 100%; max-width: 480px; max-height: 90vh; overflow-y: auto;
+}
+.modal-card h3{ font-size: 1.3rem; margin-bottom: 1.2rem; }
+.modal-actions{ display: flex; gap: .8rem; margin-top: 1.4rem; }
+.field-row{ display: grid; grid-template-columns: 1fr 1fr; gap: .9rem; }
+.checkbox-field{ display: flex; align-items: center; gap: .6rem; }
+.checkbox-field label{ margin: 0; }
+
+/* Nothing on the dashboard shows until requireAdminAuth() passes. */
+.admin-body:not(.is-authed) .admin-shell{ visibility: hidden; }

@@ -1,0 +1,11 @@
+/* =========================================================
+   Reduced-motion: GSAP animations are skipped entirely in js/app.js
+   when this is set, but this covers the header/cart CSS transitions
+   too.
+========================================================= */
+@media (prefers-reduced-motion: reduce){
+  *{ transition-duration: .001ms !important; animation-duration: .001ms !important; }
+}
+@media (prefers-reduced-motion: reduce){
+  .menu-card:hover, .menu-card:hover .menu-card__img img{ transform: none; }
+}

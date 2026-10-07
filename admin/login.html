@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co wss://*.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'; img-src 'self' data:">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Admin Login — Butt Karahi</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;500;600;700;800&family=Great+Vibes&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/motion.css">
+<link rel="stylesheet" href="../css/admin.css">
+</head>
+<body class="admin-body">
+
+<div class="admin-login-wrap">
+  <div class="admin-login-card">
+    <div class="logo" style="justify-content:center;margin-bottom:1.2rem;display:flex;"><span class="brand"><span class="brand__butt">Butt</span><span class="brand__reg" aria-hidden="true">&reg;</span> <span class="brand__karahi">Karahi</span></span></div>
+    <h1 class="admin-login-title">Admin portal</h1>
+    <p class="step-subtitle">Staff access only. Customers never see this page.</p>
+
+    <div id="demoModeNotice" class="notice notice-warn" hidden>
+      <strong>Local demo mode:</strong> no database is connected, so any
+      email/password logs you in on this computer only. On the public site
+      admin stays closed until Supabase is connected.
+    </div>
+
+    <div id="closedNotice" class="notice notice-warn" hidden>
+      Admin login isn't set up on this site yet.
+    </div>
+
+    <form id="loginForm">
+      <div class="field">
+        <label for="adminEmail">Email</label>
+        <input type="email" id="adminEmail" required placeholder="you@buttkarahi.com">
+      </div>
+      <div class="field">
+        <label for="adminPassword">Password</label>
+        <input type="password" id="adminPassword" required placeholder="••••••••">
+      </div>
+      <div class="field-error" id="loginError" role="alert"></div>
+      <button class="btn btn-primary btn-block" type="submit">Log in</button>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.2/dist/umd/supabase.min.js" integrity="sha384-WgXwGL6fUsYJWNaKJgVbrJKGRQwc1vieh2oy4kw9nXqpNDz3tdSsqEYUgeHD/NuF" crossorigin="anonymous"></script>
+<script src="../js/config.js"></script>
+<script src="../js/supabase-client.js"></script>
+<script src="../js/admin-auth.js"></script>
+<script src="../js/admin-login.js"></script>
+</body>
+</html>
